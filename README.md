@@ -4,8 +4,8 @@ Displays your current song in vrchat
 ## How to use.
 1) Install [nodejs](https://nodejs.org)
 2) Download or clone the repo
-3) Install node modules `npm i`
-4) Run the bat file
+3) Install node modules `npm i` OR run `installlibs.bat`
+4) Run `run.bat` to start the script
 
 ## If it just closes as soon as you open it:
 YOU NEED TO ENABLE VLCS WEB INTERFACE
