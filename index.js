@@ -7,6 +7,7 @@ const client = new Client('127.0.0.1', 9000);
 
 let text = '';
 let prevText = '';
+let timeout;
 
 setInterval(() => {
     fetch('http://:f@127.0.0.1:8080/requests/status.json').then(data => data.json()).then(data => {
@@ -41,9 +42,15 @@ setInterval(() => {
         }
 
         if(text !== prevText){
+            clearTimeout(timeout);
             prevText = text;
-            client.send('/chatbox/input', [ '', true ], () => {});
+
             console.log(text);
+            client.send('/chatbox/input', [ '', true ], () => {});
+            
+            timeout = setTimeout(() => {
+                client.send('/chatbox/input', [ '', true ], () => {});
+            }, 10000);
 
             if(!data.information.category.meta.title)
                 console.log('VLC Cannot find files metadata, we will just display the filename.')
