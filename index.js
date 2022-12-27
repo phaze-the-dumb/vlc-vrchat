@@ -27,13 +27,13 @@ setInterval(() => {
             }
         } else if(data.state === 'paused'){
             if(data.information.category.meta.title){
-                text = '❚❚ ' + data.information.category.meta.title + ' - ' + data.information.category.meta.artist;
+                text = '♫ ' + data.information.category.meta.title + ' - ' + data.information.category.meta.artist;
             } else if(data.information.category.meta.filename){
                 let name = data.information.category.meta.filename.split('.');
                 name.pop();
                 name = name.join('.');
 
-                text = '❚❚ ' + name;
+                text = '♫ ' + name;
             } else{
                 text = '';
             }
