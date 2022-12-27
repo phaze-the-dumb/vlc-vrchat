@@ -46,10 +46,10 @@ setInterval(() => {
             prevText = text;
 
             console.log(text);
-            client.send('/chatbox/input', [ '', true ], () => {});
-            
+            client.send('/chatbox/input', [ text, true ], () => {});
+
             timeout = setTimeout(() => {
-                client.send('/chatbox/input', [ '', true ], () => {});
+                client.send('/chatbox/input', [ text, true ], () => {});
             }, 10000);
 
             if(!data.information.category.meta.title)
