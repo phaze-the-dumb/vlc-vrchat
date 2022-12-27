@@ -42,13 +42,14 @@ setInterval(() => {
         }
 
         if(text !== prevText){
-            clearTimeout(timeout);
+            clearInterval(timeout);
             prevText = text;
 
             console.log(text);
             client.send('/chatbox/input', [ text, true ], () => {});
 
-            timeout = setTimeout(() => {
+            timeout = setInterval(() => {
+                console.log('Refreshing VRChat ChatBox');
                 client.send('/chatbox/input', [ text, true ], () => {});
             }, 10000);
 
